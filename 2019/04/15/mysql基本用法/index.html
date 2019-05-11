@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="mysql基本使用一、help使用–很好用help + 内容（元素）  二、查用的内容mysql&amp;gt;help contents;   &amp;gt;help account –账户管理 ALTER USER – 更改用户说明·原文   The ALTER USER statement modifies MySQL accounts. It enables authentication, SSL/TL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql基本使用">
+<meta property="og:url" content="http://auntsix.github.io/2019/04/15/mysql基本用法/index.html">
+<meta property="og:site_name" content="六姑的小站">
+<meta property="og:description" content="mysql基本使用一、help使用–很好用help + 内容（元素）  二、查用的内容mysql&amp;gt;help contents;   &amp;gt;help account –账户管理 ALTER USER – 更改用户说明·原文   The ALTER USER statement modifies MySQL accounts. It enables authentication, SSL/TL">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-26T06:25:43.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql基本使用">
+<meta name="twitter:description" content="mysql基本使用一、help使用–很好用help + 内容（元素）  二、查用的内容mysql&amp;gt;help contents;   &amp;gt;help account –账户管理 ALTER USER – 更改用户说明·原文   The ALTER USER statement modifies MySQL accounts. It enables authentication, SSL/TL">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://auntsix.github.io/2019/04/15/mysql基本用法/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>mysql基本使用 | 六姑的小站</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">六姑的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://auntsix.github.io/2019/04/15/mysql基本用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="六姑">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="六姑的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mysql基本使用
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-15 18:00:44" itemprop="dateCreated datePublished" datetime="2019-04-15T18:00:44+08:00">2019-04-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-26 14:25:43" itemprop="dateModified" datetime="2019-04-26T14:25:43+08:00">2019-04-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="mysql基本使用"><a href="#mysql基本使用" class="headerlink" title="mysql基本使用"></a>mysql基本使用</h1><h2 id="一、help使用–很好用"><a href="#一、help使用–很好用" class="headerlink" title="一、help使用–很好用"></a>一、help使用–很好用</h2><pre><code>help + 内容（元素）
+</code></pre><p><br></p>
+<h2 id="二、查用的内容"><a href="#二、查用的内容" class="headerlink" title="二、查用的内容"></a>二、查用的内容</h2><pre><code>mysql&gt;help contents;
+</code></pre><!-- 
+
+### Content
+
+#### 1. [Account](‪)                                                账户管理
+2. [Administration]()                                             管理
+3. [Components]()                                              组件    
+4. [Compound Statements]()                                      复合语句
+5. [Data Definition]()                                          数据定义
+6. [Data Manipulation]()                                      数据操作
+7. [Data Types]()                                              数据类型
+8. [Functions]()                                              功能
+9. [Functions and Modifiers for Use with GROUP BY]()          用于group by的函数和修饰符
+10. [Geographic Features]()                                      地理特征    
+11. [Help Metadata]()                                         帮助元数据
+12. [Language Structure]()                                      语言结构
+13. [Plugins]()                                                  插件
+14. [Storage Engines]()                                          存储引擎
+15. [Table Maintenance]()                                      表格维护
+16. [Transactions]()                                          事务
+17. [User-Defined Functions]()                                  自定义功能
+18. [Utility]()                                                  效用 -->
+<h3 id="gt-help-account-–账户管理"><a href="#gt-help-account-–账户管理" class="headerlink" title=" &gt;help account –账户管理"></a><strong> &gt;help account –账户管理</strong></h3><hr>
+<h4 id="ALTER-USER-–-更改用户"><a href="#ALTER-USER-–-更改用户" class="headerlink" title="ALTER USER – 更改用户"></a><strong>ALTER USER – 更改用户</strong></h4><h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><pre><code>·原文
+
+ The ALTER USER statement modifies MySQL accounts. It enables authentication, SSL/TLS, resource-limit, and password-management properties to be modified for existing accounts, and enables account locking and unlocking.
+
+In most cases, ALTER USER requires the global CREATE USER privilege, or the UPDATE privilege for the mysql system database. The exceptions are:
+
+o Any client who connects to the server using a nonanonymous account can change the password for that account. To see which account the server authenticated you as, invoke the CURRENT_USER() function:
+
+    SELECT CURRENT_USER();
+
+o For DEFAULT ROLE syntax, ALTER USER requires these privileges:
+
+    o Setting the default roles for another user requires the global CREATE USER privilege, or the UPDATE privilege for the mysql.default_roles system table.
+
+    o Setting the default roles for yourself requires no special privileges, as long as the roles you want as the default have been granted to you. When the read_only system variable is enabled, ALTER USER additionally requires the CONNECTION_ADMIN or SUPER privilege.
+
+By default, an error occurs if you try to modify a user that does not exist. If the IF EXISTS clause is given, the statement produces a warning for each named user that does not exist, rather than an error.
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/alter-user.html
+</code></pre><hr>
+<pre><code>·翻译
+ALTER USER语句修改mysql帐户。它使身份验证、SSL/TLS、资源限制和密码管理要为现有帐户修改的属性，并启用帐户锁定和解锁。
+
+在大多数情况下，ALTER USER 需要全局 CREATE USER 权限，或者mysql系统数据库的 UPDATE 权限。例外情况如下：
+
+o使用非匿名帐户连接到服务器的任何客户端可以更改该帐户的密码。看看哪个账户服务器将您验证为，调用CURRENT_USER()函数：
+
+SELECT CURRENT_USER();
+
+o对于 DEFAULT ROLE 语法，ALTER USER 需要以下权限：
+
+    o为其他用户设置默认角色需要全局  CREATE USER 权限，或者对mysql.default_roles系统表的 UPDATE 权限。
+
+    o为自己设置默认角色不需要特别的权限，只要您想要的角色是默认的准许你。  
+
+启用只读系统变量时，ALTER USER 另外需要  CONNECTION_ADMIN（连接管理）或  SUPER 特权。
+
+默认情况下，如果尝试修改不存在。如果给出 IF EXISTS 子句，则该语句将生成警告每个不存在的命名用户，而不是错误。
+</code></pre><hr>
+<pre><code>Name: &apos;ALTER USER&apos;
+Description:
+Syntax:  （语法）
+ALTER USER [IF EXISTS]
+user [auth_option] [, user [auth_option]] ...
+[REQUIRE {NONE | tls_option [[AND] tls_option] ...}]
+[WITH resource_option [resource_option] ...]
+[password_option | lock_option] ...
+
+ALTER USER [IF EXISTS]
+USER() IDENTIFIED BY &apos;auth_string&apos;
+
+ALTER USER [IF EXISTS]
+user DEFAULT ROLE
+{NONE | ALL | role [, role ] ...}
+
+user:
+(see )
+
+auth_option: {
+IDENTIFIED BY &apos;auth_string&apos;
+  | IDENTIFIED WITH auth_plugin
+  | IDENTIFIED WITH auth_plugin BY &apos;auth_string&apos;
+  | IDENTIFIED WITH auth_plugin AS &apos;hash_string&apos;
+}
+
+tls_option: {
+   SSL
+ | X509
+ | CIPHER &apos;cipher&apos;
+ | ISSUER &apos;issuer&apos;
+ | SUBJECT &apos;subject&apos;
+}
+安全传输层协议（TLS）用于在两个通信应用程序之间提供保密性和数据完整性。
+该协议由两层组成： TLS 记录协议（TLS Record）和 TLS 握手协议（TLS Handshake）。
+
+resource_option: {
+MAX_QUERIES_PER_HOUR count
+  | MAX_UPDATES_PER_HOUR count
+  | MAX_CONNECTIONS_PER_HOUR count
+  | MAX_USER_CONNECTIONS count
+}
+
+password_option: {
+PASSWORD EXPIRE [DEFAULT | NEVER | INTERVAL N DAY]
+  | PASSWORD HISTORY {DEFAULT | N}
+  | PASSWORD REUSE INTERVAL {DEFAULT | N DAY}
+}
+
+lock_option: {
+ACCOUNT LOCK
+  | ACCOUNT UNLOCK
+}
+</code></pre><h4 id="CREATE-USER-–-创建用户"><a href="#CREATE-USER-–-创建用户" class="headerlink" title="CREATE USER – 创建用户"></a><strong>CREATE USER – 创建用户</strong></h4><h5 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h5><pre><code>·原文
+The CREATE USER statement creates new MySQL accounts. It enables authentication, SSL/TLS, resource-limit, and password-management properties to be established for new accounts, and controls whether accounts are initially locked or unlocked.
+
+To use CREATE USER, you must have the global CREATE USER privilege, or the INSERT privilege for the mysql system database. When the read_only system variable is enabled, CREATE USER additionally requires the CONNECTION_ADMIN or SUPER privilege.
+
+CREATE USER either succeeds for all named users or rolls back and has no effect if any error occurs. By default, an error occurs if you try to create a user that already exists. If the IF NOT EXISTS clause is given, the statement produces a warning for each named user that already exists, rather than an error.
+</code></pre><hr>
+<pre><code>·翻译
+CREATE USER 语句创建新的mysql帐户。它允许为新帐户建立身份验证、SSL/TLS、资源限制和密码管理属性，并控制帐户最初是锁定还是解锁。
+
+要使用 CREATE USER，您必须具有全局 CREATE USER 权限，或者具有mysql系统数据库的insert权限。当启用只读系统变量时，创建用户还需要 CONNECTION_ADMIN 或 SUPER 特权。
+
+创建用户对于所有命名用户都成功，或者回滚，如果发生任何错误，则不起作用。默认情况下，如果尝试创建已存在的用户，则会发生错误。如果给出 IF NOT EXISTS 子句，则该语句将为已存在的每个命名用户生成一个警告，而不是一个错误。
+</code></pre><hr>
+<pre><code>mysql&gt; help create user
+Name: &apos;CREATE USER&apos;
+Description:
+Syntax:
+CREATE USER [IF NOT EXISTS]
+user [auth_option] [, user [auth_option]] ...
+DEFAULT ROLE role [, role ] ...
+[REQUIRE {NONE | tls_option [[AND] tls_option] ...}]
+[WITH resource_option [resource_option] ...]
+[password_option | lock_option] ...
+
+user:
+(see )
+
+auth_option: {
+IDENTIFIED BY &apos;auth_string&apos;
+  | IDENTIFIED WITH auth_plugin
+  | IDENTIFIED WITH auth_plugin BY &apos;auth_string&apos;
+  | IDENTIFIED WITH auth_plugin AS &apos;hash_string&apos;
+}
+
+tls_option: {
+   SSL
+ | X509
+ | CIPHER &apos;cipher&apos;
+ | ISSUER &apos;issuer&apos;
+ | SUBJECT &apos;subject&apos;
+}
+
+resource_option: {
+MAX_QUERIES_PER_HOUR count
+  | MAX_UPDATES_PER_HOUR count
+  | MAX_CONNECTIONS_PER_HOUR count
+  | MAX_USER_CONNECTIONS count
+}
+
+password_option: {
+PASSWORD EXPIRE [DEFAULT | NEVER | INTERVAL N DAY]
+  | PASSWORD HISTORY {DEFAULT | N}
+  | PASSWORD REUSE INTERVAL {DEFAULT | N DAY}
+}
+
+lock_option: {
+ACCOUNT LOCK
+  | ACCOUNT UNLOCK
+}
+</code></pre><h3 id="gt-help-administration"><a href="#gt-help-administration" class="headerlink" title=" &gt;help administration"></a><strong> &gt;help administration</strong></h3><pre><code>BINLOG
+CACHE INDEX
+FLUSH
+HELP COMMAND
+KILL
+LOAD INDEX
+RESET
+RESET PERSIST
+RESTART
+SET
+SET CHARACTER SET
+SET NAMES
+SHOW
+SHOW BINARY LOGS
+SHOW BINLOG EVENTS
+SHOW CHARACTER SET
+SHOW COLLATION
+SHOW COLUMNS
+SHOW CREATE DATABASE
+SHOW CREATE EVENT
+SHOW CREATE FUNCTION
+SHOW CREATE PROCEDURE
+SHOW CREATE TABLE
+SHOW CREATE TRIGGER
+SHOW CREATE USER
+SHOW CREATE VIEW
+SHOW DATABASES
+SHOW ENGINE
+SHOW ENGINES
+SHOW ERRORS
+SHOW EVENTS
+SHOW FUNCTION CODE
+SHOW FUNCTION STATUS
+SHOW GRANTS
+SHOW INDEX
+SHOW MASTER STATUS
+SHOW OPEN TABLES
+SHOW PLUGINS
+SHOW PRIVILEGES
+SHOW PROCEDURE CODE
+SHOW PROCEDURE STATUS
+SHOW PROCESSLIST
+SHOW PROFILE
+SHOW PROFILES
+SHOW RELAYLOG EVENTS
+SHOW SLAVE HOSTS
+SHOW SLAVE STATUS
+SHOW STATUS
+SHOW TABLE STATUS
+SHOW TABLES
+SHOW TRIGGERS
+SHOW VARIABLES
+SHOW WARNINGS
+SHUTDOWN
+</code></pre><hr>
+<h4 id="help-binlog"><a href="#help-binlog" class="headerlink" title="help binlog"></a>help binlog</h4><pre><code>mysql&gt; help binlog
+Name: &apos;BINLOG&apos;
+Description:
+Syntax:
+BINLOG &apos;str&apos;
+
+BINLOG is an internal-use statement. It is generated by the mysqlbinlog
+program as the printable representation of certain events in binary log
+files. (See http://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog.html.)
+The &apos;str&apos; value is a base 64-encoded string the that server decodes to
+determine the data change indicated by the corresponding event. This
+statement requires the BINLOG_ADMIN or SUPER privilege.
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/binlog.html
+</code></pre><h4 id="help-cache-index"><a href="#help-cache-index" class="headerlink" title="help cache index"></a>help cache index</h4><pre><code>mysql&gt; help cache index
+Name: &apos;CACHE INDEX&apos;
+Description:
+Syntax:
+CACHE INDEX
+  tbl_index_list [, tbl_index_list] ...
+  [PARTITION (partition_list | ALL)]
+  IN key_cache_name
+
+tbl_index_list:
+  tbl_name [[INDEX|KEY] (index_name[, index_name] ...)]
+
+partition_list:
+  partition_name[, partition_name][, ...]
+
+The CACHE INDEX statement assigns table indexes to a specific key
+cache. It is used only for MyISAM tables. After the indexes have been
+assigned, they can be preloaded into the cache if desired with LOAD
+INDEX INTO CACHE.
+
+The following statement assigns indexes from the tables t1, t2, and t3
+to the key cache named hot_cache:
+
+mysql&gt; CACHE INDEX t1, t2, t3 IN hot_cache;
++---------+--------------------+----------+----------+
+| Table   | Op | Msg_type | Msg_text |
++---------+--------------------+----------+----------+
+| test.t1 | assign_to_keycache | status   | OK   |
+| test.t2 | assign_to_keycache | status   | OK   |
+| test.t3 | assign_to_keycache | status   | OK   |
++---------+--------------------+----------+----------+
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/cache-index.html
+</code></pre><h4 id="help-flush"><a href="#help-flush" class="headerlink" title="help flush"></a>help flush</h4><pre><code>mysql&gt;help flush
+Name: &apos;FLUSH&apos;
+Description:
+Syntax:
+FLUSH [NO_WRITE_TO_BINLOG | LOCAL] {
+flush_option [, flush_option] ...
+  | tables_option
+}
+
+flush_option: {
+BINARY LOGS
+  | ENGINE LOGS
+  | ERROR LOGS
+  | GENERAL LOGS
+  | HOSTS
+  | LOGS
+  | PRIVILEGES
+  | OPTIMIZER_COSTS
+  | RELAY LOGS [FOR CHANNEL channel]
+  | SLOW LOGS
+  | STATUS
+  | USER_RESOURCES
+}
+
+tables_option: {
+TABLES
+  | TABLES tbl_name [, tbl_name] ...
+  | TABLES WITH READ LOCK
+  | TABLES tbl_name [, tbl_name] ... WITH READ LOCK
+  | TABLES tbl_name [, tbl_name] ... FOR EXPORT
+}
+
+The FLUSH statement has several variant forms that clear or reload
+various internal caches, flush tables, or acquire locks. To execute
+FLUSH, you must have the RELOAD privilege. Specific flush options might
+require additional privileges, as described later.
+
+*Note*:
+
+It is not possible to issue FLUSH statements within stored functions or
+triggers. However, you may use FLUSH in stored procedures, so long as
+these are not called from stored functions or triggers. See
+http://dev.mysql.com/doc/refman/8.0/en/stored-program-restrictions.html
+.
+
+By default, the server writes FLUSH statements to the binary log so
+that they replicate to replication slaves. To suppress logging, specify
+the optional NO_WRITE_TO_BINLOG keyword or its alias LOCAL.
+
+*Note*:
+
+FLUSH LOGS, FLUSH TABLES WITH READ LOCK (with or without a table list),
+and FLUSH TABLES tbl_name ... FOR EXPORT are not written to the binary
+log in any case because they would cause problems if replicated to a
+slave.
+
+The FLUSH statement causes an implicit commit. See
+http://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html.
+
+The mysqladmin utility provides a command-line interface to some flush
+operations, using commands such as flush-hosts, flush-logs,
+flush-privileges, flush-status, and flush-tables. See
+http://dev.mysql.com/doc/refman/8.0/en/mysqladmin.html.
+
+Sending a SIGHUP signal to the server causes several flush operations
+to occur that are similar to various forms of the FLUSH statement. See
+http://dev.mysql.com/doc/refman/8.0/en/server-signal-response.html.
+
+The RESET statement is similar to FLUSH. See [HELP RESET], for
+information about using the RESET statement with replication.
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/flush.html
+</code></pre><hr>
+<h4 id="HELP-COMMAND"><a href="#HELP-COMMAND" class="headerlink" title="HELP COMMAND"></a>HELP COMMAND</h4><pre><code>Name: &apos;HELP COMMAND&apos;
+Description:
+Syntax:
+mysql&gt; help search_string
+
+If you provide an argument to the help command, mysql uses it as a search string to access server-side help from the contents of the
+MySQL Reference Manual. The proper operation of this command requires that the help tables in the mysql database be initialized with
+help topic information (see http://dev.mysql.com/doc/refman/8.0/en/server-side-help-support.html).
+
+If there is no match for the search string, the search fails:
+
+mysql&gt; help me
+
+Nothing found
+Please try to run &apos;help contents&apos; for a list of all accessible topics
+
+Use help contents to see a list of the help categories:
+
+mysql&gt; help contents
+You asked for help about help category: &quot;Contents&quot;
+For more information, type &apos;help &lt;item&gt;&apos;, where &lt;item&gt; is one of the
+following categories:
+   Account Management
+   Administration
+   Data Definition
+   Data Manipulation
+   Data Types
+   Functions
+   Functions and Modifiers for Use with GROUP BY
+   Geographic Features
+   Language Structure
+   Plugins
+   Storage Engines
+   Stored Routines
+   Table Maintenance
+   Transactions
+   Triggers
+
+If the search string matches multiple items, mysql shows a list of
+matching topics:
+
+mysql&gt; help logs
+Many help items for your request exist.
+To make a more specific request, please type &apos;help &lt;item&gt;&apos;,
+where &lt;item&gt; is one of the following topics:
+   SHOW
+   SHOW BINARY LOGS
+   SHOW ENGINE
+   SHOW LOGS
+
+Use a topic as the search string to see the help entry for that topic:
+
+mysql&gt; help show binary logs
+Name: &apos;SHOW BINARY LOGS&apos;
+Description:
+Syntax:
+SHOW BINARY LOGS
+SHOW MASTER LOGS
+
+Lists the binary log files on the server. This statement is used as
+part of the procedure described in [purge-binary-logs], that shows how
+to determine which logs can be purged.
+
+mysql&gt; SHOW BINARY LOGS;
++---------------+-----------+
+| Log_name  | File_size |
++---------------+-----------+
+| binlog.000015 |724935 |
+| binlog.000016 |733481 |
++---------------+-----------+
+
+The search string can contain the wildcard characters % and _. These
+have the same meaning as for pattern-matching operations performed with
+the LIKE operator. For example, HELP rep% returns a list of topics that
+begin with rep:
+
+mysql&gt; HELP rep%
+Many help items for your request exist.
+To make a more specific request, please type &apos;help &lt;item&gt;&apos;,
+where &lt;item&gt; is one of the following
+topics:
+   REPAIR TABLE
+   REPEAT FUNCTION
+   REPEAT LOOP
+   REPLACE
+   REPLACE FUNCTION
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/mysql-server-side-help.html
+</code></pre><hr>
+<pre><code>######KILL
+mysql&gt; help kill
+Name: &apos;KILL&apos;
+Description:
+Syntax:
+KILL [CONNECTION | QUERY] processlist_id
+
+Each connection to mysqld runs in a separate thread. You can kill a
+thread with the KILL processlist_id statement.
+
+Thread processlist identifiers can be determined from the ID column of
+the INFORMATION_SCHEMA.PROCESSLIST table, the Id column of SHOW
+PROCESSLIST output, and the PROCESSLIST_ID column of the Performance
+Schema threads table. The value for the current thread is returned by
+the CONNECTION_ID() function.
+
+KILL permits an optional CONNECTION or QUERY modifier:
+
+o KILL CONNECTION is the same as KILL with no modifier: It terminates
+  the connection associated with the given processlist_id, after
+  terminating any statement the connection is executing.
+
+o KILL QUERY terminates the statement the connection is currently
+  executing, but leaves the connection itself intact.
+
+If you have the PROCESS privilege, you can see all threads. If you have
+the CONNECTION_ADMIN or SUPER privilege, you can kill all threads and
+statements. Otherwise, you can see and kill only your own threads and
+statements.
+
+You can also use the mysqladmin processlist and mysqladmin kill
+commands to examine and kill threads.
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/kill.html
+
+
+   LOAD INDEX
+   RESET
+   RESET PERSIST
+   RESTART
+   SET
+   SET CHARACTER SET
+   SET NAMES
+   SHOW
+   SHOW BINARY LOGS
+   SHOW BINLOG EVENTS
+   SHOW CHARACTER SET
+   SHOW COLLATION
+   SHOW COLUMNS
+   SHOW CREATE DATABASE
+   SHOW CREATE EVENT
+   SHOW CREATE FUNCTION
+   SHOW CREATE PROCEDURE
+   SHOW CREATE TABLE
+   SHOW CREATE TRIGGER
+   SHOW CREATE USER
+   SHOW CREATE VIEW
+   SHOW DATABASES
+   SHOW ENGINE
+   SHOW ENGINES
+   SHOW ERRORS
+   SHOW EVENTS
+   SHOW FUNCTION CODE
+   SHOW FUNCTION STATUS
+   SHOW GRANTS
+   SHOW INDEX
+   SHOW MASTER STATUS
+   SHOW OPEN TABLES
+   SHOW PLUGINS
+   SHOW PRIVILEGES
+   SHOW PROCEDURE CODE
+   SHOW PROCEDURE STATUS
+   SHOW PROCESSLIST
+   SHOW PROFILE
+   SHOW PROFILES
+   SHOW RELAYLOG EVENTS
+   SHOW SLAVE HOSTS
+   SHOW SLAVE STATUS
+   SHOW STATUS
+   SHOW TABLE STATUS
+   SHOW TABLES
+   SHOW TRIGGERS
+   SHOW VARIABLES
+   SHOW WARNINGS
+   SHUTDOWN
+</code></pre><h3 id="gt-help-components-–组件"><a href="#gt-help-components-–组件" class="headerlink" title=" &gt;help components –组件"></a><strong> &gt;help components –组件</strong></h3><pre><code>INSTALL COMPONENT           安装组件
+ UNINSTALL COMPONENT              卸载组件
+</code></pre><p>  UNINSTALL PLUGIN                 卸载插件</p>
+<h4 id="INSTALL-COMPONENT"><a href="#INSTALL-COMPONENT" class="headerlink" title="INSTALL COMPONENT"></a>INSTALL COMPONENT</h4><pre><code>Syntax:
+INSTALL COMPONENT component_name [, component_name ] ...
+</code></pre><hr>
+<pre><code>.说明
+This statement installs one or more server components,which become active immediately. A component provides services that are available to
+the server and other components; 
+see http://dev.mysql.com/doc/refman/8.0/en/server-components.html. 
+INSTALL COMPONENT requires the INSERT privilege for the mysql.component system table.
+</code></pre><hr>
+<pre><code>.翻译
+此语句安装一个或多个服务器组件，这些组件将立即变为活动的。组件提供的服务服务器和其他组件；
+请参阅http://dev.mysql.com/doc/refman/8.0/en/server-components.html。
+安装组件需要mysql.component系统表的insert特权。
+</code></pre><hr>
+<h4 id="UNINSTALL-COMPONENT"><a href="#UNINSTALL-COMPONENT" class="headerlink" title="UNINSTALL COMPONENT"></a>UNINSTALL COMPONENT</h4><pre><code>Syntax:
+UNINSTALL COMPONENT component_name [, component_name ] ...
+</code></pre><hr>
+<pre><code>.说明    
+This statement deactivates and uninstalls one or more server components. A component provides services that are available to the server and other components;
+see http://dev.mysql.com/doc/refman/8.0/en/server-components.html.
+UNINSTALL COMPONENT is the complement of INSTALL COMPONENT.It requires the DELETE privilege for the mysql.component system table.
+</code></pre><hr>
+<pre><code>.翻译  
+此语句将停用并卸载一个或多个服务器组件。组件提供服务器和其他组件可用的服务；
+请参阅http://dev.mysql.com/doc/refman/8.0/en/server-components.html。
+uninstall组件是install组件的补充，它需要mysql.component系统表的delete权限。
+
+Example:
+
+UNINSTALL COMPONENT &apos;file://component1&apos;, &apos;file://component2&apos;;
+
+For information about component naming, see [HELP INSTALL COMPONENT].
+
+If any error occurs, the statement fails and has no effect. For
+example, this happens if a component name is erroneous, a named
+component is not installed, or cannot be uninstalled because other
+installed components depend on it.
+
+A loader service handles component unloading, which includes removing
+uninstalled components from the mysql.component system table that
+serves as a registry. As a result, unloaded components are not loaded
+during the startup sequence for subsequent server restarts.
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/uninstall-component.html
+</code></pre><h4 id="UNINSTALL-PLUGIN"><a href="#UNINSTALL-PLUGIN" class="headerlink" title="UNINSTALL PLUGIN"></a>UNINSTALL PLUGIN</h4><pre><code>Syntax:
+UNINSTALL PLUGIN plugin_name
+</code></pre><hr>
+<pre><code>This statement removes an installed server plugin. It requires the DELETE privilege for the mysql.plugin system table. UNINSTALL PLUGIN is the complement of INSTALL PLUGIN.
+
+plugin_name must be the name of some plugin that is listed in the mysql.plugin table. The server executes the plugin&apos;s deinitialization function and removes the row for the plugin from the mysql.plugin table, so that subsequent server restarts will not load and initialize the plugin. UNINSTALL PLUGIN does not remove the plugin&apos;s shared library file.
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/uninstall-plugin.html
+</code></pre><h3 id="gt-help-Compound-Statements"><a href="#gt-help-Compound-Statements" class="headerlink" title=" &gt;help Compound Statements"></a><strong> &gt;help Compound Statements</strong></h3><pre><code>BEGIN END
+CASE STATEMENT
+CLOSE
+DECLARE CONDITION
+DECLARE CURSOR
+DECLARE HANDLER
+DECLARE VARIABLE
+FETCH
+GET DIAGNOSTICS
+IF STATEMENT
+ITERATE
+LABELS
+LEAVE
+LOOP
+OPEN
+REPEAT LOOP
+RESIGNAL
+RETURN
+SIGNAL
+WHILE
+</code></pre><h3 id="gt-help-Data-Manipulation"><a href="#gt-help-Data-Manipulation" class="headerlink" title=" &gt;help Data Manipulation"></a><strong> &gt;help Data Manipulation</strong></h3><pre><code>CALL
+DELETE
+DO
+DUAL
+HANDLER
+IMPORT TABLE
+INSERT
+INSERT DELAYED
+INSERT SELECT
+JOIN
+LOAD DATA
+LOAD XML
+REPLACE
+SELECT
+UNION
+UPDATE
+</code></pre><h3 id="gt-help-Data-Definition"><a href="#gt-help-Data-Definition" class="headerlink" title=" &gt;help Data Definition"></a><strong> &gt;help Data Definition</strong></h3><pre><code>ALTER DATABASE
+ALTER EVENT
+ALTER FUNCTION
+ALTER INSTANCE
+ALTER PROCEDURE
+ALTER SERVER
+ALTER TABLE
+ALTER TABLESPACE
+ALTER VIEW
+CONSTRAINT
+CREATE DATABASE
+CREATE EVENT
+CREATE FUNCTION
+CREATE INDEX
+CREATE PROCEDURE
+CREATE SERVER
+CREATE SPATIAL REFERENCE SYSTEM
+CREATE TABLE
+CREATE TABLESPACE
+CREATE TRIGGER
+CREATE VIEW
+DROP DATABASE
+DROP EVENT
+DROP FUNCTION
+DROP INDEX
+DROP PROCEDURE
+DROP SERVER
+DROP SPATIAL REFERENCE SYSTEM
+DROP TABLE
+DROP TABLESPACE
+DROP TRIGGER
+DROP VIEW
+RENAME TABLE
+TRUNCATE TABLE
+</code></pre><h3 id="gt-help-data-types"><a href="#gt-help-data-types" class="headerlink" title=" &gt;help data types"></a><strong> &gt;help data types</strong></h3><pre><code>AUTO_INCREMENT
+BIGINT
+BINARY 
+BIT
+BLOB
+BLOB DATA TYPE
+BOOLEAN
+CHAR
+CHAR BYTE
+DATE
+DATETIME
+DEC
+DECIMAL
+DOUBLE
+DOUBLE PRECISION
+ENUM
+FLOAT
+INT
+INTEGER
+LONGBLOB
+LONGTEXT
+MEDIUMBLOB
+MEDIUMINT
+MEDIUMTEXT
+SET DATA TYPE
+SMALLINT
+TEXT
+TIME
+ TIMESTAMP
+TINYBLOB
+TINYINT
+TINYTEXT
+VARBINARY
+VARCHAR
+YEAR DATA TYPE
+</code></pre><h3 id="gt-help-functions"><a href="#gt-help-functions" class="headerlink" title=" &gt;help functions"></a><strong> &gt;help functions</strong></h3><pre><code>Bit Functions
+Comparison operators
+  Control flow functions
+Date and Time Functions
+   Encryption Functions
+   Information Functions
+   Logical operators
+   Miscellaneous Functions
+   Numeric Functions
+   String Functions
+</code></pre><h3 id="gt-help-Functions-and-Modifiers-for-Use-with-GROUP-BY"><a href="#gt-help-Functions-and-Modifiers-for-Use-with-GROUP-BY" class="headerlink" title=" &gt;help Functions and Modifiers for Use with GROUP BY"></a><strong> &gt;help Functions and Modifiers for Use with GROUP BY</strong></h3><pre><code>AVG
+BIT_AND
+BIT_OR
+BIT_XOR
+COUNT
+COUNT DISTINCT
+CUME_DIST
+DENSE_RANK
+FIRST_VALUE
+GROUP_CONCAT
+JSON_ARRAYAGG
+JSON_OBJECTAGG
+LAG
+LAST_VALUE
+LEAD
+MAX
+MIN
+NTH_VALUE
+NTILE
+PERCENT_RANK
+RANK
+ROW_NUMBER
+STD
+STDDEV
+STDDEV_POP
+STDDEV_SAMP
+SUM
+VARIANCE
+VAR_POP
+VAR_SAMP
+</code></pre><h3 id="gt-help-Geographic-Features"><a href="#gt-help-Geographic-Features" class="headerlink" title=" &gt;help Geographic Features"></a><strong> &gt;help Geographic Features</strong></h3><pre><code>topics:
+   GEOMETRY
+   GEOMETRY HIERARCHY
+   SPATIAL
+categories:
+   Geometry constructors
+   Geometry properties
+   Geometry relations
+   LineString properties
+   MBR
+   Point properties
+   Polygon properties
+   WKB
+   WKT
+</code></pre><h3 id="gt-help-help-metadata-–帮助元数据"><a href="#gt-help-help-metadata-–帮助元数据" class="headerlink" title=" &gt;help help metadata –帮助元数据"></a><strong> &gt;help help metadata –帮助元数据</strong></h3><pre><code>HELP_DATE
+HELP_VERSION
+</code></pre><hr>
+<pre><code>mysql&gt; help help_date
+Name: &apos;HELP_DATE&apos;
+Description:
+This help information was generated from the MySQL 8.0 Reference Manual
+on: 2018-07-12
+</code></pre><hr>
+<pre><code>mysql&gt; help help_version
+Name: &apos;HELP_VERSION&apos;
+Description:
+This help information was generated from the MySQL 8.0 Reference Manual
+on: 2018-07-12 (revision: 58077)
+
+This information applies to MySQL 8.0 through 8.0.14.
+</code></pre><h3 id="gt-help-Language-Structure-–语言结构"><a href="#gt-help-Language-Structure-–语言结构" class="headerlink" title=" &gt;help Language Structure –语言结构"></a><strong> &gt;help Language Structure –语言结构</strong></h3><pre><code>mysql&gt; help Language Structure
+Name: &apos;Language Structure&apos;
+Description:
+TRUE FALSEExamples:
+N
+</code></pre><h3 id="gt-help-Plugins-–-插件"><a href="#gt-help-Plugins-–-插件" class="headerlink" title=" &gt;help Plugins  – 插件"></a><strong> &gt;help Plugins  – 插件</strong></h3><pre><code>Name: &apos;SHOW PLUGINS&apos;
+Description:
+Syntax:
+SHOW PLUGINS
+</code></pre><hr>
+<pre><code>SHOW PLUGINS displays information about server plugins. Plugin information is also available in the INFORMATION_SCHEMA.PLUGINS table.
+See http://dev.mysql.com/doc/refman/8.0/en/plugins-table.html.
+
+Example of SHOW PLUGINS output:
+
+mysql&gt; SHOW PLUGINS\G
+*************************** 1. row ***************************
+   Name: binlog
+ Status: ACTIVE
+   Type: STORAGE ENGINE
+Library: NULL
+License: GPL
+*************************** 2. row ***************************
+   Name: CSV
+ Status: ACTIVE
+   Type: STORAGE ENGINE
+Library: NULL
+License: GPL
+*************************** 3. row ***************************
+   Name: MEMORY
+ Status: ACTIVE
+   Type: STORAGE ENGINE
+Library: NULL
+License: GPL
+*************************** 4. row ***************************
+   Name: MyISAM
+ Status: ACTIVE
+   Type: STORAGE ENGINE
+Library: NULL
+License: GPL
+...
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/show-plugins.html
+</code></pre><h3 id="gt-help-Storage-Engines-–-存储引擎"><a href="#gt-help-Storage-Engines-–-存储引擎" class="headerlink" title=" &gt;help Storage Engines – 存储引擎"></a><strong> &gt;help Storage Engines – 存储引擎</strong></h3><pre><code>mysql&gt; help storage engines
+Name: &apos;Storage Engines&apos;
+Description:
+MERGEExamples:
+N
+</code></pre><h3 id="gt-help-Table-Maintenance-–-表格维护"><a href="#gt-help-Table-Maintenance-–-表格维护" class="headerlink" title=" &gt;help Table Maintenance  – 表格维护"></a><strong> &gt;help Table Maintenance  – 表格维护</strong></h3><pre><code>ANALYZE TABLE
+CHECK TABLE
+CHECKSUM TABLE
+OPTIMIZE TABLE
+REPAIR TABLE
+</code></pre><h3 id="gt-help-Transaction-–事务"><a href="#gt-help-Transaction-–事务" class="headerlink" title=" &gt;help Transaction  –事务 "></a><strong> &gt;help Transaction  –事务 </strong></h3><pre><code>CHANGE MASTER TO
+CHANGE REPLICATION FILTER
+DEALLOCATE PREPARE
+EXECUTE STATEMENT
+ISOLATION
+LOCK
+LOCK INSTANCE FOR BACKUP
+PREPARE
+PURGE BINARY LOGS
+RESET MASTER
+RESET SLAVE
+SAVEPOINT
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER
+SET SQL_LOG_BIN
+START SLAVE
+START TRANSACTION
+STOP SLAVE
+XA
+</code></pre><h3 id="gt-help-User-Defined-Functions-–自定义功能"><a href="#gt-help-User-Defined-Functions-–自定义功能" class="headerlink" title=" &gt;help User-Defined Functions  –自定义功能"></a><strong> &gt;help User-Defined Functions  –自定义功能</strong></h3><pre><code>CREATE FUNCTION UDF
+DROP FUNCTION UDF
+</code></pre><hr>
+<h4 id="CREATE-FUNCTION-UDF"><a href="#CREATE-FUNCTION-UDF" class="headerlink" title="CREATE FUNCTION UDF"></a>CREATE FUNCTION UDF</h4><pre><code>mysql&gt; help create function udf
+
+Syntax:
+CREATE [AGGREGATE] FUNCTION function_name
+RETURNS {STRING|INTEGER|REAL|DECIMAL}
+SONAME shared_library_name
+</code></pre><hr>
+<pre><code>·说明
+
+A user-defined function (UDF) is a way to extend MySQL with a new function that works like a native (built-in) MySQL function such as ABS() or CONCAT().
+
+function_name is the name that should be used in SQL statements to invoke the function. The RETURNS clause indicates the type of the function&apos;s return value. 
+
+DECIMAL is a legal value after RETURNS, but currently DECIMAL functions return string values and should be written like STRING functions.
+
+shared_library_name is the base name of the shared library file that contains the code that implements the function. The file must be located in the plugin directory. This directory is given by the value of the plugin_dir system variable. For more information,
+see  http://dev.mysql.com/doc/refman/8.0/en/udf-compiling.html.
+
+To create a function, you must have the INSERT privilege for the mysql system database. This is necessary because CREATE FUNCTION adds a row to the mysql.func system table that records the function&apos;s name, type, and shared library name. If you do not have this table, you should run the mysql_upgrade command to create it. 
+See http://dev.mysql.com/doc/refman/8.0/en/mysql-upgrade.html.
+
+UDFs registered using CREATE FUNCTION are listed in the Performance Schema user_defined_functions table; 
+see http://dev.mysql.com/doc/refman/8.0/en/user-defined-functions-table.html.
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/create-function-udf.html
+</code></pre><hr>
+<pre><code>·翻译
+用户定义函数（udf）是一种使用新函数扩展mysql的方法，该函数的工作方式类似于原生（内置）mysql函数，如abs（）或concat（）。
+
+函数名是在SQL语句中用来调用函数的名称。RETURNS 子句指示函数返回值的类型。
+
+DECIMAL 是 RETURNS 的合法值，但当前 RETURNS 函数返回字符串值，应该像字符串函数一样写入。
+
+shared_library_name是包含实现函数的代码的共享库文件的基名称。文件必须位于插件目录中。这个目录由plugin_dir系统变量的值给出。更多信息，请参阅http://dev.mysql.com/doc/refman/8.0/en/udf-compiling.html。
+
+要创建函数，您必须具有MySQL系统数据库的 INSERT 权限。这是必需的，因为 CREATE FUNCTION 向mysql.func系统表中添加一行，记录函数的名称、类型和共享库名称。如果没有这个表，应该运行mysql_upgrade命令来创建它   
+请参阅http://dev.mysql.com/doc/refman/8.0/en/mysql-upgrade.html。
+
+使用 CREATE FUNCTION 注册的UDF列在性能模式用户定义的_函数表中；请参阅http://dev.mysql.com/doc/refman/8.0/en/user-defined-functions-table.html。
+
+网址：http://dev.mysql.com/doc/refman/8.0/en/create-function-udf.html
+</code></pre><hr>
+<h4 id="DROP-FUNCTION-UDF"><a href="#DROP-FUNCTION-UDF" class="headerlink" title="DROP FUNCTION UDF"></a>DROP FUNCTION UDF</h4><pre><code>mysql&gt; help drop function udf
+
+Syntax:
+DROP FUNCTION function_name
+</code></pre><hr>
+<pre><code>·说明
+This statement drops the user-defined function (UDF) named function_name.
+
+To drop a function, you must have the DELETE privilege for the mysql system database. This is because DROP FUNCTION removes a row from the mysql.func system table that records the function&apos;s name, type, and shared library name.
+
+URL: http://dev.mysql.com/doc/refman/8.0/en/drop-function-udf.html
+</code></pre><hr>
+<pre><code>·翻译
+此语句将删除名为“ function_name ”的用户定义函数（UDF）。
+
+要删除函数，您必须具有MySQL系统数据库的 DELETE 权限。这是因为 DROP FUNCTION 从mysql.func系统表中删除了一行，记录了函数的名称、类型和共享库名称。
+
+网址：http://dev.mysql.com/doc/refman/8.0/en/drop-function-udf.html
+</code></pre><h3 id="gt-help-Utility-–效用"><a href="#gt-help-Utility-–效用" class="headerlink" title=" &gt;help Utility  –效用"></a><strong> &gt;help Utility  –效用</strong></h3><pre><code>EXPLAIN
+HELP STATEMENT
+USE
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/15/网络基础总结/" rel="prev" title="计算机网络基础">
+                计算机网络基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">六姑</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/auntsix" title="GitHub &rarr; https://github.com/auntsix" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql基本使用"><span class="nav-number">1.</span> <span class="nav-text">mysql基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、help使用–很好用"><span class="nav-number">1.1.</span> <span class="nav-text">一、help使用–很好用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、查用的内容"><span class="nav-number">1.2.</span> <span class="nav-text">二、查用的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-account-–账户管理"><span class="nav-number">1.2.1.</span> <span class="nav-text"> &gt;help account –账户管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ALTER-USER-–-更改用户"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">ALTER USER – 更改用户</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CREATE-USER-–-创建用户"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">CREATE USER – 创建用户</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明-1"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-administration"><span class="nav-number">1.2.2.</span> <span class="nav-text"> &gt;help administration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#help-binlog"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">help binlog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#help-cache-index"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">help cache index</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#help-flush"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">help flush</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HELP-COMMAND"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">HELP COMMAND</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-components-–组件"><span class="nav-number">1.2.3.</span> <span class="nav-text"> &gt;help components –组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#INSTALL-COMPONENT"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">INSTALL COMPONENT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UNINSTALL-COMPONENT"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">UNINSTALL COMPONENT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UNINSTALL-PLUGIN"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">UNINSTALL PLUGIN</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Compound-Statements"><span class="nav-number">1.2.4.</span> <span class="nav-text"> &gt;help Compound Statements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Data-Manipulation"><span class="nav-number">1.2.5.</span> <span class="nav-text"> &gt;help Data Manipulation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Data-Definition"><span class="nav-number">1.2.6.</span> <span class="nav-text"> &gt;help Data Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-data-types"><span class="nav-number">1.2.7.</span> <span class="nav-text"> &gt;help data types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-functions"><span class="nav-number">1.2.8.</span> <span class="nav-text"> &gt;help functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Functions-and-Modifiers-for-Use-with-GROUP-BY"><span class="nav-number">1.2.9.</span> <span class="nav-text"> &gt;help Functions and Modifiers for Use with GROUP BY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Geographic-Features"><span class="nav-number">1.2.10.</span> <span class="nav-text"> &gt;help Geographic Features</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-help-metadata-–帮助元数据"><span class="nav-number">1.2.11.</span> <span class="nav-text"> &gt;help help metadata –帮助元数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Language-Structure-–语言结构"><span class="nav-number">1.2.12.</span> <span class="nav-text"> &gt;help Language Structure –语言结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Plugins-–-插件"><span class="nav-number">1.2.13.</span> <span class="nav-text"> &gt;help Plugins  – 插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Storage-Engines-–-存储引擎"><span class="nav-number">1.2.14.</span> <span class="nav-text"> &gt;help Storage Engines – 存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Table-Maintenance-–-表格维护"><span class="nav-number">1.2.15.</span> <span class="nav-text"> &gt;help Table Maintenance  – 表格维护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Transaction-–事务"><span class="nav-number">1.2.16.</span> <span class="nav-text"> &gt;help Transaction  –事务 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-User-Defined-Functions-–自定义功能"><span class="nav-number">1.2.17.</span> <span class="nav-text"> &gt;help User-Defined Functions  –自定义功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CREATE-FUNCTION-UDF"><span class="nav-number">1.2.17.1.</span> <span class="nav-text">CREATE FUNCTION UDF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DROP-FUNCTION-UDF"><span class="nav-number">1.2.17.2.</span> <span class="nav-text">DROP FUNCTION UDF</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Utility-–效用"><span class="nav-number">1.2.18.</span> <span class="nav-text"> &gt;help Utility  –效用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">六姑</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
