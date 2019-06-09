@@ -96,13 +96,17 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="六姑的小站">
-<meta property="og:url" content="http://auntsix.github.io/index.html">
+  <meta name="description" content="mysql基本使用一、help使用–很好用help + 内容（元素）  二、查用的内容mysql&amp;gt;help contents;   &amp;gt;help account –账户管理 ALTER USER – 更改用户说明·原文   The ALTER USER statement modifies MySQL accounts. It enables authentication, SSL/TL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql基本使用">
+<meta property="og:url" content="http://auntsix.github.io/2019/04/15/mysql基本用法/index.html">
 <meta property="og:site_name" content="六姑的小站">
+<meta property="og:description" content="mysql基本使用一、help使用–很好用help + 内容（元素）  二、查用的内容mysql&amp;gt;help contents;   &amp;gt;help account –账户管理 ALTER USER – 更改用户说明·原文   The ALTER USER statement modifies MySQL accounts. It enables authentication, SSL/TL">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-26T06:25:43.941Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="六姑的小站">
+<meta name="twitter:title" content="mysql基本使用">
+<meta name="twitter:description" content="mysql基本使用一、help使用–很好用help + 内容（元素）  二、查用的内容mysql&amp;gt;help contents;   &amp;gt;help account –账户管理 ALTER USER – 更改用户说明·原文   The ALTER USER statement modifies MySQL accounts. It enables authentication, SSL/TL">
 
 
 
@@ -110,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://auntsix.github.io/">
+  <link rel="canonical" href="http://auntsix.github.io/2019/04/15/mysql基本用法/">
 
 
 
@@ -120,7 +124,7 @@
   };
 </script>
 
-  <title>六姑的小站</title>
+  <title>mysql基本使用 | 六姑的小站</title>
   
 
 
@@ -168,8 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -207,7 +210,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -269,157 +272,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://auntsix.github.io/2019/04/15/网络基础总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="六姑">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="六姑的小站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/15/网络基础总结/" class="post-title-link" itemprop="url">计算机网络基础</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-04-15 18:00:44 / Modified: 13:29:42" itemprop="dateCreated datePublished" datetime="2019-04-15T18:00:44+08:00">2019-04-15</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="计算机网络基础"><a href="#计算机网络基础" class="headerlink" title="计算机网络基础"></a>计算机网络基础</h4><p>网络：若干<strong>结点</strong>和连接这些结点的<strong>链路</strong>（link）组成<br><br>网络连接计算机，因特网连接许多网络</p>
-<p>ISP（Internet Service Provider）因特网服务提供者<br><code>(主干ISP、地区ISP、本地ISP)</code><br><img src="https://i.imgur.com/nFWxYUt.png" alt></p>
-<p><strong>应用层<br></strong><br><code>定义应用进程间通信和交互的规则</code><br></p>
-<p><strong>运输层<br></strong><br><code>负责向两个主机中进程之间的通信提供通用的数据传输服务</code><br><br>        <code>（TCP-数据控制协议[提供面向连接的可靠的数据传输服务]</code><br><code>UDP-用户数据报协议[提供无连接的尽最大努力的数据传输服务]）</code></p>
-<p><strong>网络层<br></strong><br> <code>负责为分组交换网上的不同主机提供通信服务</code><br> <br><br><strong>数据链路层</strong><br><br><code>把网络层交下来的IP数据组装成帧(数据+必要控制的信息)</code><br><br><br><strong>物理层<br></strong></p>
-<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a><strong>数据链路层</strong><br></h3><p>信道类型（点对点信道[一对一]、广播信道[一对多]）<br><br>链路（link）：从一个结点到相邻结点的一段物理线路，而中间没有任何其他的交换结点。<br><br>数据链路（data link）:把实现这些协议的硬件和软件加到这些链路上。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -451,10 +306,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/15/mysql基本用法/" class="post-title-link" itemprop="url">mysql基本使用</a>
+          <h1 class="post-title" itemprop="name headline">mysql基本使用
+
               
             
           </h1>
@@ -530,9 +383,7 @@
       
 
       
-        
-          
-            <h1 id="mysql基本使用"><a href="#mysql基本使用" class="headerlink" title="mysql基本使用"></a>mysql基本使用</h1><h2 id="一、help使用–很好用"><a href="#一、help使用–很好用" class="headerlink" title="一、help使用–很好用"></a>一、help使用–很好用</h2><pre><code>help + 内容（元素）
+        <h1 id="mysql基本使用"><a href="#mysql基本使用" class="headerlink" title="mysql基本使用"></a>mysql基本使用</h1><h2 id="一、help使用–很好用"><a href="#一、help使用–很好用" class="headerlink" title="一、help使用–很好用"></a>一、help使用–很好用</h2><pre><code>help + 内容（元素）
 </code></pre><p><br></p>
 <h2 id="二、查用的内容"><a href="#二、查用的内容" class="headerlink" title="二、查用的内容"></a>二、查用的内容</h2><pre><code>mysql&gt;help contents;
 </code></pre><!-- 
@@ -1427,8 +1278,6 @@ URL: http://dev.mysql.com/doc/refman/8.0/en/drop-function-udf.html
 HELP STATEMENT
 USE
 </code></pre>
-          
-        
       
     </div>
 
@@ -1451,12 +1300,28 @@ USE
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/15/网络基础总结/" rel="prev" title="计算机网络基础">
+                计算机网络基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1466,14 +1331,15 @@ USE
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1493,8 +1359,17 @@ USE
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1555,6 +1430,23 @@ USE
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql基本使用"><span class="nav-number">1.</span> <span class="nav-text">mysql基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、help使用–很好用"><span class="nav-number">1.1.</span> <span class="nav-text">一、help使用–很好用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、查用的内容"><span class="nav-number">1.2.</span> <span class="nav-text">二、查用的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-account-–账户管理"><span class="nav-number">1.2.1.</span> <span class="nav-text"> &gt;help account –账户管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ALTER-USER-–-更改用户"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">ALTER USER – 更改用户</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CREATE-USER-–-创建用户"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">CREATE USER – 创建用户</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明-1"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-administration"><span class="nav-number">1.2.2.</span> <span class="nav-text"> &gt;help administration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#help-binlog"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">help binlog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#help-cache-index"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">help cache index</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#help-flush"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">help flush</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HELP-COMMAND"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">HELP COMMAND</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-components-–组件"><span class="nav-number">1.2.3.</span> <span class="nav-text"> &gt;help components –组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#INSTALL-COMPONENT"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">INSTALL COMPONENT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UNINSTALL-COMPONENT"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">UNINSTALL COMPONENT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UNINSTALL-PLUGIN"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">UNINSTALL PLUGIN</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Compound-Statements"><span class="nav-number">1.2.4.</span> <span class="nav-text"> &gt;help Compound Statements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Data-Manipulation"><span class="nav-number">1.2.5.</span> <span class="nav-text"> &gt;help Data Manipulation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Data-Definition"><span class="nav-number">1.2.6.</span> <span class="nav-text"> &gt;help Data Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-data-types"><span class="nav-number">1.2.7.</span> <span class="nav-text"> &gt;help data types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-functions"><span class="nav-number">1.2.8.</span> <span class="nav-text"> &gt;help functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Functions-and-Modifiers-for-Use-with-GROUP-BY"><span class="nav-number">1.2.9.</span> <span class="nav-text"> &gt;help Functions and Modifiers for Use with GROUP BY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Geographic-Features"><span class="nav-number">1.2.10.</span> <span class="nav-text"> &gt;help Geographic Features</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-help-metadata-–帮助元数据"><span class="nav-number">1.2.11.</span> <span class="nav-text"> &gt;help help metadata –帮助元数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Language-Structure-–语言结构"><span class="nav-number">1.2.12.</span> <span class="nav-text"> &gt;help Language Structure –语言结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Plugins-–-插件"><span class="nav-number">1.2.13.</span> <span class="nav-text"> &gt;help Plugins  – 插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Storage-Engines-–-存储引擎"><span class="nav-number">1.2.14.</span> <span class="nav-text"> &gt;help Storage Engines – 存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Table-Maintenance-–-表格维护"><span class="nav-number">1.2.15.</span> <span class="nav-text"> &gt;help Table Maintenance  – 表格维护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Transaction-–事务"><span class="nav-number">1.2.16.</span> <span class="nav-text"> &gt;help Transaction  –事务 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-User-Defined-Functions-–自定义功能"><span class="nav-number">1.2.17.</span> <span class="nav-text"> &gt;help User-Defined Functions  –自定义功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CREATE-FUNCTION-UDF"><span class="nav-number">1.2.17.1.</span> <span class="nav-text">CREATE FUNCTION UDF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DROP-FUNCTION-UDF"><span class="nav-number">1.2.17.2.</span> <span class="nav-text">DROP FUNCTION UDF</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-help-Utility-–效用"><span class="nav-number">1.2.18.</span> <span class="nav-text"> &gt;help Utility  –效用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1683,6 +1575,10 @@ USE
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -1698,6 +1594,8 @@ USE
 
   
 
+
+  
 
 
   
