@@ -1,0 +1,128 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            height: 3000px;
+            width: 100%;
+            background: #ccc;
+        }
+        
+        .progress {
+            position: fixed;
+            top: 0;
+            height: 5px;
+            background: red;
+        }
+    </style>
+    <title>原生js页面滚动顶部显示滚动总进度条效果</title>
+</head>
+
+<body>
+    <div class="progress"></div>
+    <div>
+        <div class="box">1</div>
+    </div>
+</body>
+<script>
+    (function() {
+        let pageHeight = document.body.scrollHeight || document.documentElement.scrollHeight; // 页面总高度
+        let windowHeight = document.documentElement.clientHeight || document.body.clientHeight; // 浏览器视口高度
+        let scrollAvail = pageHeight - windowHeight; // 可滚动的高度
+        console.log('可滚动的高度：', scrollAvail);
+        window.onscroll = function() {
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 获取滚动条的高度
+            console.log('滚动条的高度：', scrollTop);
+            document.querySelector('.progress').style.width = (scrollTop / scrollAvail) * 100 + '%'; // 计算占比
+        };
+    }());
+</script>
+
+</html> -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>网页进度条</title>
+    <style type="text/css">
+        #progressBox {
+            width: 300px;
+            height: 40px;
+            border: 1px solid #c8c8c8;
+            position: relative;
+            background: #fff;
+        }
+        
+        #progressBar,
+        #progressText {
+            position: absolute;
+            top: 0;
+            left: 0;
+            line-height: 40px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+        /*clip属性适用于绝对定位*/
+        
+        #progressBar {
+            z-index: 2;
+            background: #00A1F5;
+            /*第二个参数表示所切宽度*/
+            clip: rect(0px, 0px, 140px, 0px);
+            color: white;
+        }
+        
+        #progressText {
+            z-index: 1;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="progressBox">
+        <div id="progressBar">0%</div>
+        <div id="progressText">0%</div>
+    </div>
+</body>
+<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var iNow = 0; //写死数据，实际情况应该取得后台返回的ajax数据
+        var timer = setInterval(function() {
+            iNow += 2;
+            if (iNow > 100) {
+                clearInterval(timer);
+            } else {
+                progressFn(iNow);
+            }
+        }, 30);
+    });
+
+    function progressFn(cent) {
+        var progressBox = $('#progressBox');
+        var progressBar = $('#progressBar');
+        var progressText = $('#progressText');
+        var totalWidth = progressBox.width();
+        progressBar.text(cent + '%');
+        progressText.text(cent + '%');
+        progressBar.css({
+            clip: 'rect(0px,' + cent / 100 * totalWidth + 'px,140px,0px)'
+        });
+    }
+</script>
+
+</html>

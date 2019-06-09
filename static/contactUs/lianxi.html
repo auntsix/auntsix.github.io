@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>联系我们</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/neibu/lianxi.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script src="" async defer></script>
+    <div id="title" class="tl"></div>
+
+
+
+    <div class="container">
+        <div class="content clearfix">
+            <div class="subtitle-new">合作洽谈</div>
+
+            <div class="inner-box" style="display: inline-block; _display: inline;">
+                <div class="inner-box-title">广告投放</div>
+                <div><br> 联系邮箱:
+                    <strong>XXX@xx.com</strong><br>
+                    <span class="color-alert" style="font-size: 12px;"></span></div>
+            </div>
+            <div class="inner-box" style="display: inline-block; _display: inline;">
+                <div class="inner-box-title">商务合作</div>
+                <div><br> 联系邮箱:
+                    <strong>XXX@xx.com</strong>
+
+                </div>
+            </div>
+            <div class="inner-box" style="display: inline-block; _display: inline;">
+                <div class="inner-box-title">涉外活动合作</div>
+                <div><br> 联系邮箱:
+                    <strong>XXX@xx.com</strong></div>
+                <span class="color-alert" style="font-size: 12px;"></span></div>
+
+            <div class="inner-box" style="display: inline-block; _display: inline;">
+                <div class="inner-box-title">媒体联络</div>
+                <div><br> 联系邮箱:
+                    <strong>XXX@xx.com</strong></div>
+            </div>
+            <div class="inner-box" style="display: inline-block; _display: inline;">
+                <div class="inner-box-title">餐饮推广</div>
+                <div><br> 联系邮箱:
+                    <strong>XXX@xx.com</strong><br>
+                    <span class="color-alert" style="font-size: 12px;"></span></div>
+            </div>
+
+        </div>
+        <div class="content clearfix">
+            <div class="subtitle-new">用户服务</div>
+            <div class="inner-box" style="display: inline-block; _display: inline;">
+                <div class="inner-box-title">餐饮问题反馈</div><br>
+                <div><br> 联系邮箱:
+                    <strong>XXX@xx.com</strong><br>
+                    <span class="color-alert" style="font-size: 12px;"></span></div>
+            </div>
+
+
+
+            <div class="inner-box" style="display: inline-block; _display: inline;">
+                <div class="inner-box-title">服务问题反馈</div><br>
+                <div>联系邮箱：<strong>XXX@xx.com</strong><br> 联系QQ：
+                    <strong>55555555</strong>
+                    <br>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix">
+            <div class="subtitle-new">版权问题</div>
+            <div class="inner-box" style="display: inline-block; _display: inline;">
+                <div class="inner-box-title">版权问题反馈</div><br>
+                <div><br> 联系邮箱:
+                    <strong>XXX@xx.com</strong><br>
+                    <span class="color-alert" style="font-size: 12px;"></span></div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <div id="footer"></div>
+    <script>
+        $("#footer").load("/static/footer.html");
+        $("#title").load("/static/title.html");
+    </script>
+
+
+
+    <style>
+        .box,
+        .progress {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            height: 100%;
+            width: 100%;
+            background: #ccc;
+        }
+        
+        .progress {
+            position: fixed;
+            top: 0;
+            height: 5px;
+            background: #ffd24f;
+        }
+    </style>
+
+    <div class="progress"></div>
+    <div>
+        <div class="box"></div>
+    </div>
+
+    <script>
+        (function() {
+            let pageHeight = document.body.scrollHeight || document.documentElement.scrollHeight; // 页面总高度
+            let windowHeight = document.documentElement.clientHeight || document.body.clientHeight; // 浏览器视口高度
+            let scrollAvail = pageHeight - windowHeight; // 可滚动的高度
+            console.log('可滚动的高度：', scrollAvail);
+            window.onscroll = function() {
+                let scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 获取滚动条的高度
+                console.log('滚动条的高度：', scrollTop);
+                document.querySelector('.progress').style.width = (scrollTop / scrollAvail) * 100 + '%'; // 计算占比
+            };
+        }());
+    </script>
+
+
+</body>
+
+</html>

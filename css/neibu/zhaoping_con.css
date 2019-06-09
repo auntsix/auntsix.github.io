@@ -1,0 +1,86 @@
+.zhaoping_join {
+    margin: 0 auto;
+    margin-top: 400px;
+    width: 200px;
+    height: 100px;
+    /* background-color: aquamarine; */
+    /* opacity: 0.2; */
+}
+
+.zhaoping_join p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    letter-spacing: 0em;
+    font-family: Graduate;
+    font-weight: 1000;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.zhaoping_join1 {
+    width: 200px;
+    height: 100px;
+    margin-top: -100px;
+    border-radius: 20px;
+    background-color: rgb(148, 148, 124);
+    opacity: 0.2;
+}
+
+.zhaoping__img {
+    /* background-color: black; */
+    /* display: block; */
+    padding-top: 100px;
+    width: 1000px;
+    height: 500px;
+    /* float: left; */
+    margin: 0 auto;
+    background: url(/images/4.png) no-repeat;
+}
+
+.zhaoping__video video {
+    /* padding-top: 400px; */
+    /* display: block; */
+    /* width: 100%; */
+    /* max-height: 100%; */
+    margin-top: 20px;
+    margin-left: 130px;
+    /* margin: 0 auto; */
+}
+
+.zhaoping__ {
+    margin-top: 50px;
+}
+
+.zhaoping_img4 {
+    /* background-color: black; */
+    /* display: block; */
+    /* padding-top: 100px; */
+    width: 700px;
+    height: 500px;
+    /* float: left; */
+    margin: 0 auto;
+    margin-top: 200px;
+    background: url(/images/5.png) no-repeat;
+}
+
+.zhaoping_button {
+    width: 120px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #ffd24f;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 25px;
+    margin-top: -40px;
+}
+
+.zhaoping_button a {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}

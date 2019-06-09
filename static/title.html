@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/title.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script>
+        $(function() {
+            $('.nav__items>li').hover(function(e) {
+                $(this).children().stop().slideToggle()
+            });
+        })
+    </script>
+</head>
+
+<body>
+
+
+    <div class="title">
+        <div class="">
+            <a href="/index.html" target="_blank" class="t1" title="首页">
+                <p>嗨了</p>
+            </a>
+        </div>
+
+        <div class="Header-nav-inner">
+            <ul class="nav__items">
+                <li class="nav__item">
+                    <a href="#" class="Header-nav-item nav__btn" data-test="template-nav">儿童餐厅</a>
+                    <ul class="l2">
+                        <li> <a href="/static/introduce/gushi.html" class="Header-nav-item nav__btn l3" target="_self">品牌故事</a></li>
+                        <li> <a href="/static/introduce/llinian.html" class="Header-nav-item nav__btn l3" target="_self">经营理念</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="Header-nav-item" data-test="template-nav">用户服务</a>
+                    <ul class="l2">
+                        <li> <a href="/static/userService/fankui.html" class="Header-nav-item nav__btn l3" target="_self">用户反馈</a></li>
+                        <li> <a href="/static/userService/jifen.html" class="Header-nav-item nav__btn l3" target="_self">积分服务</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="Header-nav-item Header-nav-item--active" data-test="template-nav">美食娱乐</a>
+                    <ul class="l2">
+                        <li> <a href="/static/foodAndPlay/meishi.html" class="Header-nav-item nav__btn l3" target="_self">美食介绍</a></li>
+                        <li> <a href="/static/foodAndPlay/diancan.html" class="Header-nav-item nav__btn l3" target="_self">在线点餐</a></li>
+                        <li> <a href="/static/foodAndPlay/yule.html" class="Header-nav-item nav__btn l3" target="_self">娱乐活动</a></li>
+                    </ul>
+
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="Header-nav-item" data-test="template-nav">加入我们</a>
+                    <ul class="l2">
+                        <li> <a href="/static/join/zhaoping.html" class="Header-nav-item nav__btn l3" target="_self">社会招聘</a></li>
+                        <li> <a href="/static/join/fuli.html" class="Header-nav-item nav__btn l3" target="_self">薪资福利</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item">
+
+                    <a href="#" class="Header-nav-item" data-test="template-nav">联系我们</a>
+                    <ul class="l2">
+                        <li> <a href="/static/contactUs/lianxi.html" class="Header-nav-item nav__btn l3" target="_self">联系我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>
